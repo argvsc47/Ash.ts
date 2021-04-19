@@ -1,0 +1,29 @@
+{
+	"name": "ash.ts",
+	"description": "A web framework in development",
+	"version": "0.0.0",
+	"main": "lib/ash.js",
+	"author": "argvsc47",
+	"contributors": [
+		"Prokop Schield"
+	],
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"build": "npx nslibmgr make"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.41"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/prokopschield/Ash.ts.git"
+	},
+	"keywords": [],
+	"bugs": {
+		"url": "https://github.com/prokopschield/Ash.ts/issues"
+	},
+	"homepage": "https://github.com/prokopschield/Ash.ts#readme",
+	"dependencies": {
+		"doge-config": "^0.0.6"
+	}
+}
