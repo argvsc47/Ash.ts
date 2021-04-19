@@ -16,13 +16,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/prokopschield/Ash.ts.git"
+		"url": "git+https://github.com/argvsc47/Ash.ts.git"
 	},
 	"keywords": [],
 	"bugs": {
-		"url": "https://github.com/prokopschield/Ash.ts/issues"
+		"url": "https://github.com/argvsc47/Ash.ts/issues"
 	},
-	"homepage": "https://github.com/prokopschield/Ash.ts#readme",
+	"homepage": "https://github.com/argvsc47/Ash.ts#readme",
 	"dependencies": {
 		"doge-config": "^0.0.6"
 	}
