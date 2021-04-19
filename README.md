@@ -8,4 +8,5 @@ example:
 {
   "port": 8000,
   "proto": "http"
+}
 ```
