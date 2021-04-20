@@ -8,7 +8,6 @@ import {
 import http from 'http';
 import https from 'https';
 import fs from 'fs';
-import path from 'path';
 
 class Route {
 	constructor (rurl: string, rfunc: Function) {
