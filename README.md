@@ -7,6 +7,8 @@ example:
 ```json
 {
   "port": 8000,
-  "proto": "http"
+  "proto": "http",
+  "url": {
+    "/":"index_handler",
 }
 ```
