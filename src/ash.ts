@@ -3,7 +3,6 @@
 import {
 	port,
 	protocol,
-	urls,
 } from './config';
 import http from 'http';
 import https from 'https';
