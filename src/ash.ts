@@ -3,9 +3,11 @@
 import {
 	port,
 	protocol,
+	urls,
 } from './config';
 import http from 'http';
 import https from 'https';
+import fs from 'fs';
 
 class Route {
 	constructor (rurl: string, rfunc: Function) {
@@ -52,10 +54,22 @@ class Server {
 			console.log('===========================================')
 			this.listener.listen(port)
 		}
+		this.loadRouter = () => {
+			for (const handler of fs.readdirSync('./handlers')) {
+				var name = handler.replace("/\.[^/.]+$/", "");
+				var route_handler = require(rt).handler;
+				if (name === "index") {
+					var route = "/";
+				} else {
+					var route = name;
+				}
+				this.router.route(route,route_handler);
+			}
 	}
 	router: Router;
 	listener: http.Server | https.Server;
 	listen: Function;
+	loadRouter: Function;
 }
 
 export {
