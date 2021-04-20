@@ -3,6 +3,7 @@
 import {
 	port,
 	protocol,
+	urls,
 } from './config';
 import http from 'http';
 import https from 'https';
@@ -52,10 +53,21 @@ class Server {
 			console.log('===========================================')
 			this.listener.listen(port)
 		}
+		//i've added this v
+		this.loadRouter = (urls: object) => {
+			var x = Object.entries(urls);
+			for (a in x) {
+				var hnd = urls.__getString(x[a][0])
+				eval(`import { ${hnd} } from './handlers.js'`)
+				eval(`this.router.route(x[a][0], ${hnd})`)
+			}
+		}
 	}
 	router: Router;
 	listener: http.Server | https.Server;
 	listen: Function;
+	//and this v
+	loadRouter: Function;
 }
 
 export {
