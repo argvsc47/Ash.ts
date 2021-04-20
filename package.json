@@ -5,7 +5,8 @@
 	"main": "lib/ash.js",
 	"author": "argvsc47",
 	"contributors": [
-		"Prokop Schield"
+		"Prokop Schield",
+		"iamanalt"
 	],
 	"license": "GPL-3.0-or-later",
 	"scripts": {
