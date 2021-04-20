@@ -16,7 +16,7 @@ example:
 # handler.ts
 a handlers.ts file must be present in the file requiring ash
 example:
-```typscript
+```typescript
 function index_handler(request: http.IncomingMessage, response: http.ServerResponse) {
   response.write("Hello, World!");
   response.end();
