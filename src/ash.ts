@@ -55,16 +55,9 @@ class Server {
 			console.log('===========================================')
 			this.listener.listen(port)
 		}
-		//i've added this v
 		this.loadRouter = () => {
-			var files = []
-			fs.readdirSync('./handlers').forEach(file:string => {
-				if (path.extname(file) === '.js') {
-					files.push(file);
-				}
-			});
-			files.forEach(rt:string => {
-				var name = rt.replace("/\.[^/.]+$/", "");
+			for (const handler of fs.readdirSync('./handlers')) {
+				var name = handler.replace("/\.[^/.]+$/", "");
 				var route_handler = require(rt).handler;
 				if (name === "index") {
 					var route = "/";
@@ -72,12 +65,11 @@ class Server {
 					var route = name;
 				}
 				this.router.route(route,route_handler);
-		}
+			}
 	}
 	router: Router;
 	listener: http.Server | https.Server;
 	listen: Function;
-	//and this v
 	loadRouter: Function;
 }
 
