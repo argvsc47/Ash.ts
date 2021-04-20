@@ -7,6 +7,8 @@ import {
 } from './config';
 import http from 'http';
 import https from 'https';
+import fs from 'fs';
+import path from 'path';
 
 class Route {
 	constructor (rurl: string, rfunc: Function) {
@@ -54,12 +56,22 @@ class Server {
 			this.listener.listen(port)
 		}
 		//i've added this v
-		this.loadRouter = (urls: object) => {
-			for (a in urls) {
-				var hnd = urls.__getString(urls[a][0])
-				eval(`import { ${hnd} } from './handlers.js'`)
-				eval(`this.router.route(x[a][0], ${hnd})`)
-			}
+		this.loadRouter = () => {
+			var files = []
+			fs.readdirSync('./handlers').forEach(file:string => {
+				if (path.extname(file) === '.js') {
+					files.push(file);
+				}
+			});
+			files.forEach(rt:string => {
+				var name = rt.replace("/\.[^/.]+$/", "");
+				var route_handler = require(rt).handler;
+				if (name === "index") {
+					var route = "/";
+				} else {
+					var route = name;
+				}
+				this.router.route(route,route_handler);
 		}
 	}
 	router: Router;
