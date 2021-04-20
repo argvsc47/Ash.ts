@@ -8,8 +8,6 @@ example:
 {
   "port": 8000,
   "proto": "http",
-  "url": {
-    "/":"index_handler",
 }
 ```
 
