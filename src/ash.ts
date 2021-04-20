@@ -55,9 +55,8 @@ class Server {
 		}
 		//i've added this v
 		this.loadRouter = (urls: object) => {
-			var x = Object.entries(urls);
-			for (a in x) {
-				var hnd = urls.__getString(x[a][0])
+			for (a in urls) {
+				var hnd = urls.__getString(urls[a][0])
 				eval(`import { ${hnd} } from './handlers.js'`)
 				eval(`this.router.route(x[a][0], ${hnd})`)
 			}
