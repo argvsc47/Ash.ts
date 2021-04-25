@@ -26,5 +26,8 @@
 	"homepage": "https://github.com/argvsc47/Ash.ts#readme",
 	"dependencies": {
 		"doge-config": "^0.0.6"
+	},
+	"directories": {
+		"lib": "lib"
 	}
 }

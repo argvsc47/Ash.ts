@@ -16,5 +16,6 @@ declare class Server {
     router: Router;
     listener: http.Server | https.Server;
     listen: Function;
+    loadRouter: Function;
 }
 export { Route, Router, Server, };
