@@ -7,6 +7,7 @@ import {
 import http from 'http';
 import https from 'https';
 import fs from 'fs';
+import path from 'path';
 
 class Route {
 	constructor (rurl: string, rfunc: Function) {
@@ -56,6 +57,7 @@ class Server {
 		this.loadRouter = () => {
 			for (const handler of fs.readdirSync('./handlers')) {
 				var name = handler.replace("/\.[^/.]+$/", "");
+				var rt = path.resolve('./handlers', handler);
 				var route_handler = require(rt).handler;
 				if (name === "index") {
 					var route = "/";
@@ -64,6 +66,7 @@ class Server {
 				}
 				this.router.route(route,route_handler);
 			}
+		}
 	}
 	router: Router;
 	listener: http.Server | https.Server;
