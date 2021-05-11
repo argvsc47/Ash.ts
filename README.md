@@ -23,4 +23,6 @@ function handler(request, response) {
   response.write("Hello, World!");
   response.end();
 }
+
+module.exports = handler
 ```
