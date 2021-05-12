@@ -44,14 +44,14 @@ example:
 ```typescript
 const Ash = require('ash');
 var Profiler = new Ash.Profiler();
-const my_server = new asherver(Profiler.getProfile('dev'));
+const my_server = new Ash.asherver(Profiler.getProfile('dev'));
 ```
 # Examples
 ```typescript
 //<configuration>
 
 const Ash = require('ash');
-var my_server = new asherver(my_conf);
+var my_server = new Ash.asherver(my_conf);
 my_server.listen();
 ```
 
