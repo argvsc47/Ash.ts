@@ -1,12 +1,40 @@
-import { getConfig } from 'doge-config';
+import fs from 'fs';
 
-const config = getConfig('ash.ts', {
-	port: 8000,
-	protocol: 'http',
-});
+interface IConfig {
+	port: number,
+	protocol: string,
+	pool_sz: number,
+	exts: object,
+}
 
-export default config;
-module.exports = config;
+class Config {
 
-export const port = config.__getNumber('port');
-export const protocol = config.__getString('protocol');
+	readVARS(port: number, protocol: string, pool_sz: number, exts: object) {
+		this.port = port;
+		this.protocol = protocol;
+		this.pool_sz = pool_sz;
+		this.exts = exts;
+	}
+	
+	readENV() {
+		this.port = parseInt(process.env.PORT);
+		this.protocol = process.env.PROTOCOL;
+		this.pool_sz = parseInt(process.env.POOL_SIZE);
+		this.exts = JSON.parse(process.env.EXTS);
+	}
+
+	readJSON(filename: string) {
+		const cfg : IConfig = JSON.parse(fs.readFileSync(filename, 'utf-8'));
+		this.port = cfg.port;
+		this.protocol = cfg.protocol;
+		this.pool_sz = cfg.pool_sz;
+		this.exts = cfg.exts;
+	}
+	
+	port: number;
+	protocol: string;
+	pool_sz: number;
+	exts: object;
+}
+
+export { Config };
