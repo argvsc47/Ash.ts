@@ -69,3 +69,6 @@ function handler(request, response) {
 
 module.exports = handler;
 ```
+
+# Honorable mentions
+Thanks to Prokop Schield for doing some refactoring when i was just starting in typescript
