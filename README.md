@@ -1,5 +1,5 @@
 # Ash.ts
-A minimal micro framework for web servers implemented in TypeScript
+A minimal web framework designed to be lightweight, multithreaded and async implement in Typescript
 
 # configuration
 there are currently three ways to configure ash:
