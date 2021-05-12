@@ -35,7 +35,7 @@ const exts = {
 	".css": "text/css"
 };
 
-my_conf.readVARS(port = port, protocol = protocol, pool_sz = pool_sz, exts = exts)
+my_conf.readVARS(port, protocol, pool_sz, exts)
 ```
 
 ## Using the profiler
