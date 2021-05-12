@@ -1,28 +1,71 @@
 # Ash.ts
-A minimal micro micro framework for web servers implemented in ( TypeScript )
+A minimal micro framework for web servers implemented in TypeScript
 
-# config.ash
-a config.ash file must be present in the file requiring Ash.ts
-example:
-```json
-{
-  "port": 8000,
-  "proto": "http",
-}
+# configuration
+there are currently three ways to configure ash:
+
+## Using 'Config' class
+### JSON
+By specifying a json file to the Config class you can load configuration from a json file:
+```typescript
+const Config = require('ash').Config;
+var my_conf = new Config();
+my_conf.readJSON("path/to/the/file");
 ```
 
-# handlers
-to route a url you need to add a js file containg it's handler under ./handlers dir
-with the name of the url
+### Enviroment
+By setting enviroment variables you can load the configuration with the readENV function:
+```typescript
+const Config = require('ash').Config;
+var my_conf = new Config();
+my_conf.readENV();
+```
+
+### Variables
+Or you can just use variables declared in your code instead:
+```typescript
+const Config = require('ash').Config;
+var my_conf = new Config();
+
+const port = 8080;
+const protocol = "http";
+const pool_sz = 6;
+const exts = {
+	".html": "text/html",
+	".css": "text/css"
+};
+
+my_conf.readVARS(port = port, protocol = protocol, pool_sz = pool_sz, exts = exts)
+```
+
+## Using the profiler
+you can use the profiler to store configuration and use them later
+example:
+```typescript
+const Ash = require('ash');
+var Profiler = new Ash.Profiler();
+const my_server = new asherver(Profiler.getProfile('dev'));
+```
+# Examples
+```typescript
+//<configuration>
+
+const Ash = require('ash');
+var my_server = new asherver(my_conf);
+my_server.listen();
+```
+
+# routing
+to route a url you need to add a js file containg it's name under the ./handlers dir
+
 example:
 ```javascript
 // - handlers/index.js
 // name the file index for /
-// the function that gets called is always 'handler' so be sure to include it
 function handler(request, response) {
   response.write("Hello, World!");
   response.end();
 }
 
-module.exports = handler
+module.exports = handler;
 ```
