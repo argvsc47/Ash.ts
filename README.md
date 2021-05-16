@@ -51,29 +51,17 @@ const Ash = require('ash');
 var Profiler = new Ash.Profiler();
 const my_server = new Ash.asherver(Profiler.getProfile('dev'));
 ```
-# Examples
-```typescript
-//<configuration>
-
-const Ash = require('ash');
-var my_server = new Ash.asherver(my_conf);
-my_server.listen();
-```
 
 # routing
-to route a url you need to add a js file containg it's name under the ./handlers dir
-
-example:
-```javascript
-// - handlers/index.js
-// name the file index for /
-function handler(request, response) {
-  response.write("Hello, World!");
-  response.end();
-}
-
-module.exports = handler;
+```typescript
+//<configuration + server initialization>
+my_server.router.route('/', function(request, response) {
+	response.write('Hello, World!');
+	response.end();
+});
 ```
+
+# Examples
 
 # Honorable mentions
 Thanks to Prokop Schield for doing some refactoring when i was just starting in typescript
