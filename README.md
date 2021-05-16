@@ -2,6 +2,11 @@
 A minimal web framework designed to be lightweight, multithreaded and async implement in Typescript
 
 # configuration
+port: the port which the server listens to
+protocol: http/https
+pool_sz: the size of the pool, the number of threads
+exts: object representing extensions and their content type header
+
 there are currently three ways to configure ash:
 
 ## Using 'Config' class
