@@ -46,21 +46,6 @@ class asherver {
 		this.listener.listen(this.port)
 	}
 
-	load() {
-
-		for (const handler of fs.readdirSync('./handlers')) {
-			var name = handler.replace("/\.[^/.]+$/", "");
-
-			var route_handler: Function = require('./handlers/'+name);
-			if (name === "index.js") {
-				var route = '/';
-			} else {
-				var route = '/'+name;
-			}
-			this.router.route(route,route_handler);
-		}
-	}
-
 	resource(file: string, request: http.IncomingMessage, response: http.ServerResponse) {
 
 		for (const rsrc of fs.readdirSync('./resources')) {
