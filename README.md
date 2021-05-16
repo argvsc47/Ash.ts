@@ -61,6 +61,9 @@ my_server.router.route('/', function(request, response) {
 });
 ```
 
+# static files
+to server static files, just put your file under the ./resources directory. and make sure it's respective extension is in your config exts
+
 # Examples
 [link](https://github.com/argvsc47/Ash.ts/tree/main/examples)
 
