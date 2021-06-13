@@ -2,6 +2,7 @@
 	"name": "ash.ts",
 	"description": "A minimal web framework designed to be lightweight, multithreaded and async implement in Typescript",
 	"version": "1.0.0",
+	"main": "lib/index.js",
 	"author": "argvsc47",
 	"contributors": [
 		"Prokop Schield",
@@ -18,7 +19,11 @@
 		"type": "git",
 		"url": "git+https://github.com/argvsc47/Ash.ts.git"
 	},
-	"keywords": ["typescript", "web", "server"],
+	"keywords": [
+		"typescript",
+		"web",
+		"server"
+	],
 	"bugs": {
 		"url": "https://github.com/argvsc47/Ash.ts/issues"
 	},
@@ -26,4 +31,8 @@
 	"dependencies": {
 		"typescript": "^4.2.4"
 	},
+	"directories": {
+		"example": "examples",
+		"lib": "lib"
+	}
 }
