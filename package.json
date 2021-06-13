@@ -2,7 +2,7 @@
 	"name": "ash.ts",
 	"description": "A minimal web framework designed to be lightweight, multithreaded and async implement in Typescript",
 	"version": "1.0.0",
-	"main": "lib/index.js",
+	"main": "lib/ash.js",
 	"author": "argvsc47",
 	"contributors": [
 		"Prokop Schield",
