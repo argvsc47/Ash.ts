@@ -8,7 +8,6 @@ class Route {
 }
 
 class Router {
-	routes: Route[] = [];
 	route (url: string, func: Function) {
 		this.routes.push(new Route(url, func));
 	}
@@ -23,6 +22,7 @@ class Router {
 			response.end();
 		} 
 	}
+	routes: Route[] = [];
 }
 
 export { Router };
