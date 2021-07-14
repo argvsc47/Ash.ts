@@ -3,15 +3,16 @@
 	"description": "A minimal web framework designed to be lightweight, multithreaded and async implement in Typescript",
 	"version": "1.0.0",
 	"main": "lib/ash.js",
+	"scripts": {
+		"build": "python build.py",
+		"lint": "npx nslibmgr lint"
+	},
 	"author": "argvsc47",
+	"license": "GPL-3.0-or-later",
 	"contributors": [
 		"Prokop Schield",
 		"iamanalt"
 	],
-	"license": "GPL-3.0-or-later",
-	"scripts": {
-		"build": "python build.py"
-	},
 	"devDependencies": {
 		"@types/node": "^14.14.41"
 	},

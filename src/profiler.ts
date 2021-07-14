@@ -6,19 +6,19 @@ class Profiler {
 		var devcfg = new Config();
 		var prdcfg = new Config();
 		const extensions = {
-			".html": "text/html",
-			".css": "text/css",
-			".ico": "image/x-icon",
-			".jpg": "image/jpeg",
-			".png": "image/png",
-			".js": "application/javascript",
-			".json": "application/json",
+			'.html': 'text/html',
+			'.css': 'text/css',
+			'.ico': 'image/x-icon',
+			'.jpg': 'image/jpeg',
+			'.png': 'image/png',
+			'.js': 'application/javascript',
+			'.json': 'application/json',
 		};
-		devcfg.readVARS(8080, "http", 6,  extensions); //port, protocol, pool_size extensions
-		prdcfg.readVARS(8000, "https", 8, extensions);
+		devcfg.readVARS(8080, 'http', 6, extensions); //port, protocol, pool_size extensions
+		prdcfg.readVARS(8000, 'https', 8, extensions);
 		this.profiles = {
-			"dev": devcfg,
-			"prod": prdcfg
+			dev: devcfg,
+			prod: prdcfg,
 		};
 	}
 
@@ -31,18 +31,25 @@ class Profiler {
 		for (const prf in this.profiles) {
 			const profile = this.profiles[prf];
 			var tmpcfg = new Config();
-			tmpcfg.readVARS(profiles[profile].port, profile.protocol, profile.pool_sz, profile.exts);
+			tmpcfg.readVARS(
+				profiles[profile].port,
+				profile.protocol,
+				profile.pool_sz,
+				profile.exts
+			);
 			this.profiles[profile];
 		}
 	}
 
 	saveProfiles(filename: string) {
-		fs.writeFile(filename, JSON.stringify(this.profiles), (err)=>{throw err});
+		fs.writeFile(filename, JSON.stringify(this.profiles), (err) => {
+			throw err;
+		});
 	}
 
 	getProfile(name: string) {
 		if (!(name in this.profiles)) {
-			throw "Cannot find profile.";
+			throw 'Cannot find profile.';
 		}
 		return this.profiles[name];
 	}

@@ -8,7 +8,7 @@ port: the port which the server listens to
 
 protocol: http/https
 
-pool\_sz: the size of the pool, the number of threads
+pool_sz: the size of the pool, the number of threads
 
 exts: object representing extensions and their content type header
 
@@ -23,7 +23,7 @@ By specifying a JSON file to the Config class you can load configuration from a 
 ```typescript
 const Config = require('ash').Config;
 var my_conf = new Config();
-my_conf.readJSON("path/to/the/file");
+my_conf.readJSON('path/to/the/file');
 ```
 
 ### Enviroment
@@ -45,14 +45,14 @@ const Config = require('ash').Config;
 var my_conf = new Config();
 
 const port = 8080;
-const protocol = "http";
+const protocol = 'http';
 const pool_sz = 6;
 const exts = {
-    ".html": "text/html",
-    ".css": "text/css"
+	'.html': 'text/html',
+	'.css': 'text/css',
 };
 
-my_conf.readVARS(port, protocol, pool_sz, exts)
+my_conf.readVARS(port, protocol, pool_sz, exts);
 ```
 
 ## Using the profiler
@@ -69,9 +69,9 @@ const my_server = new Ash.asherver(Profiler.getProfile('dev'));
 
 ```typescript
 //<configuration + server initialization>
-my_server.router.route('/', function(request, response) {
-    response.write('Hello, World!');
-    response.end();
+my_server.router.route('/', function (request, response) {
+	response.write('Hello, World!');
+	response.end();
 });
 ```
 
@@ -81,9 +81,8 @@ to serve static files, put them in the `./resources` directory. and make sure it
 
 # Examples
 
-[link](<https://github.com/argvsc47/Ash.ts/tree/main/examples>)
+[link](https://github.com/argvsc47/Ash.ts/tree/main/examples)
 
 # Honorable mentions
 
 Thanks to Prokop Schield for doing some refactoring when i was just starting in typescript
-

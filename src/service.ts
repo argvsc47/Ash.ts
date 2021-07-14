@@ -1,11 +1,8 @@
-import {
-	workerData,
-	parentPort
-} from 'worker_threads';
+import { workerData, parentPort } from 'worker_threads';
 
 var task;
 
-eval('task='+workerData.handler)
-task()
+eval('task=' + workerData.handler);
+task();
 
-parentPort.postMessage({ status: 0 })
+parentPort.postMessage({ status: 0 });
