@@ -28,11 +28,11 @@ class Profiler {
 
 	loadProfiles(filename: string) {
 		const profiles = JSON.parse(fs.readFileSync(filename, 'utf-8'));
-		for (const prf in this.profiles) {
-			const profile = this.profiles[prf];
+		for (const prf in profiles) {
+			const profile = profiles[prf];
 			var tmpcfg = new Config();
-			tmpcfg.readVARS(profiles[profile].port, profile.protocol, profile.pool_sz, profile.exts);
-			this.profiles[profile];
+			tmpcfg.readVARS(profile.port, profile.protocol, profile.pool_sz, profile.exts);
+			this.loadProfileCfg(prf, tmpcfg);
 		}
 	}
 
