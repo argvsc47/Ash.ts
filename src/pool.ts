@@ -3,9 +3,11 @@ import { Thread, Status } from './thread'
 class Pool {
 	
 	constructor(pool_sz: number) {
-		this.size = pool_sz
+		this.size = pool_sz;
+		this.workers = [];
+		
 		for (var i = 0; i < this.size; i++) {
-			this.workers.push(new Thread())
+			this.workers.push(new Thread());
 		}
 	}
 
