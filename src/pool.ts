@@ -24,7 +24,7 @@ class Pool {
 	}
 
 	size: number;
-	workers: Array<Thread>;
+	workers: Thread[] = [];
 }
 
 export { Pool };
