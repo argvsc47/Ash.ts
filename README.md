@@ -2,6 +2,12 @@
 
 A minimal web framework designed to be lightweight, multi-threaded, and async, implemented in Typescript
 
+# Building
+
+ - Since Ash.ts uses the [Zweit](https://github.com/argvsc47/Zweit) build system, make sure to have it
+ - Clone the repo and cd into the folder
+ - run `zweit.py make.zw` to build the framework or `zweit.py makeall.zw` to build every file one by one 
+
 # configuration
 
 port: the port which the server listens to
