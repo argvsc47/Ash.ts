@@ -33,9 +33,13 @@ class asherver {
 			}
 
 			var handler = await this.router.getHandler(request.url);
+			/* multi threading is stopped now, as there were problems, I will fix this as soon as possible
+			
 			if (handler) {
 				this.pool.dispatch(()=>{handler(request, response)});
 			}
+			*/
+			handler(request, response);
 		})
 	}
 
