@@ -3,3 +3,8 @@ tsc
 ./src/
 
 ash.ts
+
+# -all
+tsc
+-t es6 -allowSyntheticDefaultImports -module commonJS
+./src/
